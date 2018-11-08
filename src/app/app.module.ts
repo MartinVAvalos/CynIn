@@ -1,39 +1,45 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
-import { HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
-import { UserComponent } from './components/user/user.component';
-import {FormsModule} from '@angular/forms'
-import {environment} from '../environments/environment';
-import {FireserveService} from './services/fireserve.service';
-import { UserService } from './services/user.service';
-import{HttpModule} from '@angular/http';
-import { SigninComponent } from './components/auth/signin/signin.component';
-import { SignupComponent } from './components/auth/signup/signup.component';
-import { AppRoutingModule } from './/app-routing.module';
-import { AuthService } from './components/auth/auth.service';
-import { BlankComponent } from './components/blank/blank.component';
-
-
+import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './header/header.component';
+import { MemberComponent } from './member/member.component';
+import { EventComponent } from './event/event.component';
+import { EventListComponent } from './event/event-list/event-list.component';
+import { EventItemComponent } from './event/event-list/event-item/event-item.component';
+import { EventDetailComponent } from './event/event-detail/event-detail.component';
+import { DataStorageService } from './shared/data-storage.service';
+import { SigninComponent } from './auth/signin/signin.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { MemberService } from './member/member.service';
+import { EventService } from './event/event.service';
+import { AuthService } from './auth/auth.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
+    HomeComponent,
+    HeaderComponent,
+    MemberComponent,
+    EventComponent,
+    EventListComponent,
+    EventItemComponent,
+    EventDetailComponent,
     SigninComponent,
-    SignupComponent,
-    BlankComponent
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule,
     HttpModule,
     AppRoutingModule
   ],
-  providers: [FireserveService, AuthService],
+  providers: [MemberService, EventService, DataStorageService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

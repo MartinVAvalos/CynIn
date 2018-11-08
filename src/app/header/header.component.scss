@@ -1,0 +1,85 @@
+$primary: #2b2d42 !default;
+$primaryVariant: #8d99ae !default;
+$alternative: #edf2f4 !default;
+$secondary: #b3d89c !default;
+$secondaryVariant: #d0efb1 !default;
+
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
+body {
+  position: fixed;
+	margin: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+	font-family: 'Work Sans', sans-serif;
+	font-weight: 800;
+}
+
+.container {
+	width: 80%;
+	margin: 0 auto;
+}
+
+header {
+  background: $primary;
+  height: 6vh;
+}
+
+header::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.logo {
+  float: left;
+  color: white;
+  padding-top: 2vh;
+  font-size: 1.4em;
+}
+
+nav {
+  float: right;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 70px;
+  padding-top: 23px;
+
+  position: relative;
+}
+
+nav a {
+  color: $secondaryVariant;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: $secondary;
+}
+
+nav a::before {
+  content: '';
+  display: block;
+  height: 5px;
+  background-color: $secondary;
+
+  position: absolute;
+  top: 0;
+  width: 0%;
+
+  transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+  width: 100%;
+}

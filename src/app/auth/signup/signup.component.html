@@ -1,0 +1,53 @@
+
+<div class="container-full">
+  <div class="welcome"> Join the Club!</div>
+  <div class="main">
+    <form (ngSubmit)="onSignup(f)" #f="ngForm">
+      <div class="input-spacing">
+
+        <!-- <div class="name-container">
+          <input  class="name" type="text" name="fName" placeholder="First Name">
+          <div class="name-space"></div>
+          <input class="name" type="text" name="lName" placeholder="Last Name">
+        </div>
+
+        <div class="spacing"></div> -->
+
+          <input
+          class="email"
+          type="email"
+          id="email"
+          name="email"
+          ngModel
+          placeholder="EMAIL"
+          required
+          email>
+
+        <div class="spacing"></div>
+
+          <input
+            class="password1"
+            type="password"
+            id="password"
+            name="password"
+            ngModel
+            placeholder="PASSWORD"
+            required
+            minlength="6">
+
+        <div class="spacing"></div>
+
+          <!-- <input class="password2" type="password" name="password2" placeholder="PASSWORD"> -->
+
+      </div>
+
+      <button
+        class="register"
+        type="submit"
+        [disabled]="!f.valid"
+        (click)="onSignup()">Register</button>
+    </form>
+  </div>
+
+  <h2 class="signin">Click here to <span routerLink="/signin">sign in</span></h2>
+</div>

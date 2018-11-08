@@ -1,0 +1,38 @@
+<div class="container-full">
+  <div class="welcome"> Welcome! </div>
+
+  <div class="main">
+
+    <form (ngSubmit)="onSignin(f)" #f="ngForm">
+      <div class="input-spacing">
+
+        <input
+        class="email"
+        type="email"
+        id="email"
+        name="email"
+        ngModel
+        placeholder="EMAIL">
+
+        <div class="spacing"></div>
+
+        <input
+          class="password"
+          type="password"
+          id="password"
+          name="password"
+          ngModel
+          placeholder="PASSWORD">
+
+      </div>
+
+      <div class="signin-space"></div>
+      <button
+        class="signin"
+        type="submit"
+        [disabled]="!f.valid">Sign In</button>
+    </form>
+  </div>
+
+  <h2 class="signup">Click here to <span routerLink="/signup">sign up</span></h2>
+</div>

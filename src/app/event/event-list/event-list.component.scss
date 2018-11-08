@@ -1,0 +1,14 @@
+$primary: #2b2d42 !default;
+$primaryVariant: #8d99ae !default;
+$alternative: #edf2f4 !default;
+$secondary: #b3d89c !default;
+$secondaryVariant: #d0efb1 !default;
+
+.event-title {
+  height: 60%;
+  line-height: 1.7;
+  margin-left: 4%;
+  font-size: 2em;
+  font-weight: 500;
+  color: $primary;
+}

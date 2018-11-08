@@ -1,26 +1,21 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
-import { RouterModule, Routes } from '@angular/router';
-import { UserComponent } from './components/user/user.component';
-import { SignupComponent } from './components/auth/signup/signup.component';
-import { SigninComponent } from './components/auth/signin/signin.component';
-import {BlankComponent} from './components/blank/blank.component';
+import { HomeComponent } from './home/home.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { SignupComponent } from './auth/signup/signup.component';
 
-const routes: Routes = [
-  {path: '', component: SigninComponent },
-  {path: 'signin', component: SigninComponent },
-  {path: 'signup', component: SignupComponent },
-  {path: 'user', component: UserComponent }
-
-  
-]
+const appRoutes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'signin', component: SigninComponent },
+  { path: 'signup', component: SignupComponent }
+];
 
 @NgModule({
-  exports: [RouterModule],
-  imports: [
-    RouterModule.forRoot(routes)
-  ],
-  declarations: []
+  imports: [RouterModule.forRoot(appRoutes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+
+}
