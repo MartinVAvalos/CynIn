@@ -13,29 +13,24 @@ import {Observable} from 'rxjs/Observable';
 export class DataStorageService {
   constructor(private http: Http,private uidFromUser: AuthService) { }
 
-    storeServers(member: Member){
+  storeMembers(member: Member){
+    return this.http.put('https://muse-cynin.firebaseio.com/'+this.uidFromUser.getUid()+'/data.json', member);
+  }
 
- return this.http.put('https://muse-cynin.firebaseio.com/'+this.uidFromUser.getUid()+'/data.json', member);
-    }
-    getlist(){
+  getMembers(){
+    return this.http.get('https://muse-cynin.firebaseio.com/'+this.uidFromUser.getUid()+'/data.json')
+    .map(
+        (response: Response) => {
+          const data = response.json();
 
-      return this.http.get('https://muse-cynin.firebaseio.com/'+this.uidFromUser.getUid()+'/data.json')
-      .map(
-          (response: Response) => {
-            const data = response.json();
-
-            return data;
-          }
-      )
-      .catch(
-        (error: Response) => {
-          return Observable.throw(console.log(Response));
+          return data;
         }
-      );
-
-
-    }
-
-
+    )
+    .catch(
+      (error: Response) => {
+        return Observable.throw(console.log(Response));
+      }
+    );
+  }
 
 }

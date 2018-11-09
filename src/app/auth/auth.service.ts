@@ -1,7 +1,7 @@
 import * as firebase from 'firebase';
 
 export class AuthService {
-  value:string;
+  value:string = null;
 
   signupUser(email: string, password: string) {
     firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -25,10 +25,12 @@ export class AuthService {
     return this.value=firebase.auth().currentUser.uid;
   }
 
-  log_out(){
+  logout(){
     this.value=null;
    }
-   set_uid(){
-     this.value=null;
-   }
+
+   isAuthenticated() {
+    return this.value != null;
+  }
+
 }

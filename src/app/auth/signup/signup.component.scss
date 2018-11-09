@@ -39,13 +39,9 @@ $disabled: #602617;
 
 .name {
   color: $alternative;
-  width: 17vw;
+  width: 40vw;
   letter-spacing: 1px;
   border-bottom: 2px solid $secondary;
-}
-
-.name-space {
-  width: 7vw;
 }
 
 .email {
@@ -78,11 +74,6 @@ $disabled: #602617;
 .input-spacing{
   padding-left: 5vw;
   padding-top: 9vh;
-}
-
-.name-container {
-  width: 40vw;
-  display: flex;
 }
 
 input {

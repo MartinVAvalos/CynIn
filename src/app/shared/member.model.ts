@@ -1,16 +1,14 @@
 export class Member {
-  public firstName: string;
-  public lastName: string;
-  public email: string;
-  public password: string;
-  public permit: string; //permissions to admin or member for an account.
-  public totalTime: string;
-  public startTime: string;
-  public endTime: string;
+  public name: string = null;
+  public email: string = null;
+  public password: string = null;
+  public permit: string = 'mems'; //permissions to admin 'g@urd13n' or member 'mems' for an account.
+  public totalTime: string = '0';
+  public startTime: string = null;
+  public endTime: string = null;
 
-  constructor(firstName: string, lastName: string, email: string, password: string, permit: string, totalTime: string, startTime: string, endTime: string) {
-    this.firstName = firstName;
-    this.lastName = lastName;
+  constructor(name: string, email: string, password: string, permit: string, totalTime: string, startTime: string, endTime: string) {
+    this.name = name;
     this.email = email;
     this.password = password;
     this.permit = permit;
