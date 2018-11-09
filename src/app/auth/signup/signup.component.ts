@@ -10,12 +10,14 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent {
+  validateEqual: boolean = false;
   constructor(private authService: AuthService, private router: Router) {}
 
   onSignup(form: NgForm) {
     const email = form.value.email;
     const password = form.value.password;   // NOTE: password is equal to password1.
-    this.authService.signupUser(email, password)
-    this.router.navigate(['/signin'])
+    this.authService.signupUser(email, password);
+    this.router.navigate(['/signin']);
   }
+
 }

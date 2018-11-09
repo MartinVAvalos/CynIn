@@ -4,6 +4,8 @@ $alternative: #edf2f4 !default;
 $secondary: #b3d89c !default;
 $secondaryVariant: #d0efb1 !default;
 
+$disabled: #602617;
+
 .container-full {
   position: fixed;
   top: 6vh;
@@ -68,8 +70,7 @@ input {
   font-size: 1em;
   font-weight: 400;
   border: none;
-  background: $primary;
-  color: $primary;
+  background: $primary !important;
 }
 
 input:-webkit-autofill {
@@ -79,6 +80,10 @@ input:-webkit-autofill {
 
 input:focus {
   outline: none;
+}
+
+input.ng-invalid.ng-touched {
+  border-color: red;
 }
 
 .signin-space {
@@ -101,6 +106,13 @@ button {
   color: $alternative;
   letter-spacing: 2px;
   font-size: 1.5em;
+  outline-style: none;
+}
+
+.signin:disabled {
+  opacity: 0.8;
+  border-color: $disabled;
+  cursor: not-allowed;
 }
 
 .signup {

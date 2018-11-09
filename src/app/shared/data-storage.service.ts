@@ -1,20 +1,41 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Headers, Http, Response } from '@angular/http'
+import { Server } from 'selenium-webdriver/safari';
+import { database } from 'firebase';
 
-import { MemberService } from '../member/member.service';
+import { Member } from './member.model';
+import { AuthService } from '../auth/auth.service';
+
+import 'rxjs/Rx';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class DataStorageService {
-  constructor(private http: Http,  private memberService: MemberService) {}
+  constructor(private http: Http,private uidFromUser: AuthService) { }
 
-  storeMembers() {
-    return this.http.put('https://muse-cynin.firebaseio.com/data.json', this.memberService.getMembers());
-  }
-  // this.http.post(    post
-  // this.http.put(     put overwrites old data
+    storeServers(member: Member){
 
-  getMembers(members: any[]) {
-    return this.http.get('https://muse-cynin.firebaseio.com/data.json');
-  }
+ return this.http.put('https://muse-cynin.firebaseio.com/'+this.uidFromUser.getUid()+'/data.json', member);
+    }
+    getlist(){
+
+      return this.http.get('https://muse-cynin.firebaseio.com/'+this.uidFromUser.getUid()+'/data.json')
+      .map(
+          (response: Response) => {
+            const data = response.json();
+
+            return data;
+          }
+      )
+      .catch(
+        (error: Response) => {
+          return Observable.throw(console.log(Response));
+        }
+      );
+
+
+    }
+
+
 
 }
