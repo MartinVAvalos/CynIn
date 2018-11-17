@@ -12,32 +12,29 @@ import {Observable} from 'rxjs/Observable';
 @Injectable()
 export class FireserveService {
 
-    constructor(private http: Http,private uidFromUser: AuthService) { }
+  constructor(private http: Http,private uidFromUser: AuthService) { }
 
-    storeServers(servers: User){
+  storeUser(server : User){
+    return this.http.put('https://muse-cynin.firebaseio.com/'+this.uidFromUser.getUid()+'/data.json', server);
+  }
+  getUser(){
 
-      //www.google.com/dog
-      //ww.google.com/cats
- return this.http.put('https://muse-cynin.firebaseio.com/'+this.uidFromUser.getUid()+'/data.json', servers);
-    }
-    getlist(){
+    return this.http.get('https://muse-cynin.firebaseio.com/'+this.uidFromUser.getUid()+'/data.json')
+    .map(
+        (response: Response) => {
+          const data = response.json();
 
-      return this.http.get('https://muse-cynin.firebaseio.com/'+this.uidFromUser.getUid()+'/data.json')
-      .map(
-          (response: Response) => {
-            const data = response.json();
-
-            return data;
-          }
-      )
-      .catch(
-        (error: Response) => {
-          return Observable.throw(console.log(Response));
+          return data;
         }
-      );
+    )
+    .catch(
+      (error: Response) => {
+        return Observable.throw(console.log(Response));
+      }
+    );
 
 
-    }
+  }
 
 
 

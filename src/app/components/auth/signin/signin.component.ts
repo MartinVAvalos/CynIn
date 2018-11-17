@@ -17,6 +17,6 @@ export class SigninComponent {
     const email = form.value.email;
     const password = form.value.password;
     this.authService.signinUser(email, password);
-    this.router.navigate(['/user']);
+    this.router.navigate(['/home']);
   }
 }

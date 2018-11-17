@@ -4,27 +4,36 @@
   <div class="main">
     <form (ngSubmit)="onSignup(f)" #f="ngForm">
       <div class="input-spacing">
-
+<!-- we access inputs through the name -->
         <input
           class="name"
-          type="text"
-          id="name"
-          name="name"
           ngModel
-          placeholder="Name"
+          name = "firstName"
+          id="first"
+          placeholder="First Name"
           required>
+
+          <div class="name-space"></div>
+
+          <input
+            class="name"
+            type="text"
+            id="last"
+            ngModel
+            name = "lastName"
+            placeholder="Last Name"
+            required>
 
         <div class="spacing"></div>
 
           <input
-          class="email"
-          type="email"
-          id="email"
-          name="email"
-          ngModel
-          placeholder="EMAIL"
-          required
-          email>
+            class="email"
+            type="email"
+            id="email"
+            ngModel
+            name = "email"
+            placeholder="EMAIL"
+            required>
 
         <div class="spacing"></div>
 
@@ -32,8 +41,8 @@
             class="password1"
             type="password"
             id="password"
-            name="password"
             ngModel
+            name = "password"
             placeholder="PASSWORD"
             required
             minlength="6">
@@ -47,8 +56,7 @@
       <button
         class="register"
         type="submit"
-        [disabled]="!f.valid"
-        (click)="onSignup()">Register</button>
+        [disabled]="!f.valid">Register</button>
     </form>
   </div>
 

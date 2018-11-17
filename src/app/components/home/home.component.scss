@@ -22,6 +22,10 @@ $secondaryVariant: #d0efb1 !default;
   width: 80vw;
 }
 
+.divider {
+  width: 10vw;
+}
+
 .member-container, .divider, .event-container {
   display: inline;
 }
@@ -38,10 +42,6 @@ hr {
 
 .member-container, .event-container {
   width: 35vw;
-}
-
-.divider {
-  width: 10vw;
 }
 
 // /***** For Tablets *******/

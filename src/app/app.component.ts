@@ -13,7 +13,11 @@ export class AppComponent implements OnInit{
   ngOnInit(){
       firebase.initializeApp({
         apiKey: "AIzaSyBDBompZV0ty1cMfNBnlRKfN-IAQu3V4zA",
-        authDomain: "muse-cynin.firebaseapp.com"
+        authDomain: "muse-cynin.firebaseapp.com",
+        databaseURL: "https://muse-cynin.firebaseio.com",
+        projectId: "muse-cynin",
+        storageBucket: "muse-cynin.appspot.com",
+        messagingSenderId: "462424385045"
       });
   }
 

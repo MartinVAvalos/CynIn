@@ -1,19 +1,30 @@
-<!--
-  Purpose: Display list of events
-  Description: Will display event title. Will give more details on event when clicked
--->
-
-<div class="row">
-  <div class="container-list">
-    <app-admin-list></app-admin-list>
+<div class="container-full">
+  <div class="hot-bar">
+    <div class="title-block">
+      <div class="title">Member(s)</div>
+      <hr>
+    </div>
+    <div class="admin-control">
+      <button>Plan Event</button>
+      <button>Urgent</button>
+      <button class="squeeze">Send Times</button>
+    </div>
   </div>
 
-  <div class="container-detail">
-    <!-- <app-admin-detail
-      *ngIf="selectedEvent; else infoText"
-      [event]="selectedEvent"></app-admin-detail>
-      <ng-template #infoText>
-        <h1>Please select an Event</h1>
-      </ng-template> -->
+  <div class="container-shiftMiddle">
+    <div class="container-list">
+      <app-admin-list></app-admin-list>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="container-detail">
+      <app-admin-detail
+        *ngIf="selectedEvent; else infoText"
+        [event]="selectedEvent"></app-admin-detail>
+        <!-- <ng-template #infoText>
+          <h1>Please select an Event</h1>
+        </ng-template> -->
+    </div>
   </div>
 </div>

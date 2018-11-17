@@ -4,7 +4,8 @@ $alternative: #edf2f4 !default;
 $secondary: #b3d89c !default;
 $secondaryVariant: #d0efb1 !default;
 
-$disabled: #602617;
+$buttonDisabled: #602617;
+$invalid: #FF0800;
 
 .container-full {
   position: fixed;
@@ -39,9 +40,14 @@ $disabled: #602617;
 
 .name {
   color: $alternative;
-  width: 40vw;
+  width: 18vw;
   letter-spacing: 1px;
   border-bottom: 2px solid $secondary;
+}
+
+.name-space {
+  display: inline;
+  margin-left: 3.5vw;
 }
 
 .email {
@@ -95,7 +101,12 @@ input:focus {
 }
 
 input.ng-invalid.ng-touched {
-  border-color: $disabled;
+  border-color: $invalid;
+}
+
+.help {
+  color: $invalid;
+  display: block;
 }
 
 button {
@@ -120,7 +131,7 @@ button {
 
 .register:disabled {
   opacity: 0.8;
-  border-color: $disabled;
+  border-color: $buttonDisabled;
   cursor: not-allowed;
 }
 

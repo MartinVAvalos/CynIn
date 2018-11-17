@@ -3,24 +3,29 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
 
+import { Event } from '../../models/event.model';
+import { EventService } from '../../services/event.service';
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss'],
-  // providers: [AdminService]
+  providers: [EventService]
 })
 export class AdminComponent implements OnInit {
   selectedUser: User;
+  selectedEvent: Event;
 
-  constructor(private memberService: UserService) { }
+  constructor(private eventService: EventService) { }
 
   ngOnInit() {
-    // this.eventService.memberSelected
-    //   .subscribe(
-    //     (event: Event) => {
-    //       this.selectedEvent = event;
-    //     }
-    //   );
+    this.eventService.eventSelected
+      .subscribe(
+        (event: Event) => {
+          this.selectedEvent = event;
+        }
+      );
   }
+
 
 }

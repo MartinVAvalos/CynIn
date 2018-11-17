@@ -4,13 +4,14 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { SigninComponent } from './components/auth/signin/signin.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
-
+  { path: 'admin', component: AdminComponent }
 ];
 
 @NgModule({

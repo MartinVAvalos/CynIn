@@ -25,26 +25,26 @@ export class UserComponent implements OnInit {
   }
 
   login(){
-    this.userService.serviceLogin();
+    // this.userService.serviceLogin();
   }
 
-  onSave() {
-   this.fire.storeServers(this.user)
+  onSave(user: User) {
+   this.fire.storeUser(user)
     .subscribe(
       (response) =>console.log(response),
       (error) =>console.log(error)
       );
   }
   onFetch(){
-    this.fire.getlist()
-    .subscribe(
-      (servers: User) =>this.user=servers,
-      (error)=> console.log(error)
-    );
+    // this.fire.getUser()
+    // .subscribe(
+    //   (servers: User) =>this.user=servers,
+    //   (error)=> console.log(error)
+    // );
   }
  logout(){
-  this.serviceToLoggout.set_uid();
-    this.ru.navigate(['/signin']);
+ //  this.serviceToLoggout.set_uid();
+ //    this.ru.navigate(['/signin']);
  }
 
 }

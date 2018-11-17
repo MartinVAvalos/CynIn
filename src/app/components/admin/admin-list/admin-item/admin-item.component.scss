@@ -14,7 +14,7 @@ $secondaryVariant: #d0efb1 !default;
 }
 
 .event-container {
-  top: 0;
+  top: 6vh;
   left: 0;
   height: 7%;
   width: 100%;
@@ -22,7 +22,7 @@ $secondaryVariant: #d0efb1 !default;
   text-align: center;
   background-color: white;
   border-radius: 30px;
-  border: 1.2px solid $primary;
+  border: 3px solid $primary;
   cursor: pointer;
 }
 
