@@ -2,11 +2,11 @@
   <div class="hot-bar">
     <div class="title-block">
       <div class="title">Member(s)</div>
-      <hr>
+      <hr class="user-hr">
     </div>
     <div class="admin-control">
       <button>Plan Event</button>
-      <button>Urgent</button>
+      <span class="button-space"></span>
       <button class="squeeze">Send Times</button>
     </div>
   </div>
@@ -19,9 +19,38 @@
     <div class="divider"></div>
 
     <div class="container-detail">
-      <app-admin-detail
-        *ngIf="selectedEvent; else infoText"
-        [event]="selectedEvent"></app-admin-detail>
+      <div
+      class="admin-info"
+      *ngIf="!selectedEvent">
+        <div class="admin-name">Admin Name</div>
+      <div class="width">  <hr class="admin-hr">  </div>
+        <div class="logged-time">Total Time Logged In: ________STUFF HERE</div>
+
+        <button class="admin-time">Time Out</button>
+
+      <span class="button-space"></span>
+
+        <button class="admin-time">Log Out</button>
+    </div>
+
+
+        <app-admin-detail
+          class="admin-detail"
+          *ngIf="selectedEvent; else infoText"
+          [event]="selectedEvent"></app-admin-detail>
+
+        <div
+          class="manipulate-user"
+          *ngIf="selectedEvent">Add to total time: </div>
+          <div class="inline">
+            <input type="text" class="math" placeholder="Hours" *ngIf="selectedEvent">
+            <input type="text" class="math" placeholder="Minutes" *ngIf="selectedEvent">
+            <button
+              *ngIf="selectedEvent"
+              class="confirm">Confirm Change</button>
+          </div>
+
+
         <!-- <ng-template #infoText>
           <h1>Please select an Event</h1>
         </ng-template> -->

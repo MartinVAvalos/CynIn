@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import{ User } from './../models/user.model'
 import { FireserveService} from './fireserve.service';
 import { NgForm } from '@angular/forms';
 
 @Injectable()
 export class UserService {
+  userSelected = new EventEmitter<User>();
   user:User;
-  display:string;
 
   constructor(private fire: FireserveService) {
     this.user = {
@@ -29,7 +29,20 @@ export class UserService {
 
   }
 
-  serviceRegister(email: string, nameFirst: string, nameLast: string) {
+  onSaveUp(email: string, nameFirst: string, nameLast: string) {
+    this.user.email = email;
+    this.user.nameFirst = nameFirst;
+    this.user.nameLast = nameLast;
+
+    //save yo shit
+    this.fire.storeUser(this.user)
+     .subscribe(
+       (response) =>console.log(response),
+       (error) =>console.log(error)
+       );
+  }
+
+  onSaveIn(email: string, nameFirst: string, nameLast: string) {
     this.user.email = email;
     this.user.nameFirst = nameFirst;
     this.user.nameLast = nameLast;

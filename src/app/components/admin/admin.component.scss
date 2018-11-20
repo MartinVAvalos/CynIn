@@ -27,7 +27,7 @@ outline: none;
   font-weight: 600;
 }
 
-hr {
+.user-hr {
   border-top: 5px solid $primaryVariant;
   border-bottom: 5px solid $alternative;
   border-right: 5px solid $alternative;
@@ -64,6 +64,12 @@ button:hover {
   background: linear-gradient(to left, $alternative, $secondary);
 }
 
+.button-space {
+  height: 0vh;
+  width: 0vw;
+  padding-right: 0.4vw;
+}
+
 .squeeze {
   letter-spacing: 0px;
   font-weight: 500;
@@ -91,8 +97,94 @@ button:hover {
   display: inline;
 }
 
-.container-list, .container-detail {
+.container-list {
   width: 35vw;
+}
+
+.container-detail {
+  width: 40vw;
+}
+
+.admin-name {
+  color: $primary;
+  font-size: 2em;
+  font-weight: 800;
+}
+
+.width {
+  width: 12vw;
+}
+
+.admin-hr {
+  border-top: 5px solid $primary;
+  border-bottom: 5px solid $alternative;
+  border-right: 5px solid $alternative;
+  border-left: 5px solid $primary;
+}
+
+.logged-time {
+  padding-top: 1vh;
+  color: $primary;
+  font-size: 1.4em;
+}
+
+.admin-time {
+  color: $alternative;
+  margin-top: 1vh;
+  width: 8vw;
+  height: 4vh;
+  font-size: 1em;
+  font-weight: 800;
+  border: 3px solid $primaryVariant;
+  background: $primary;
+  border-radius: 10px;
+}
+
+.admin-time:hover {
+  color: $primaryVariant;
+  border: 3px solid $alternative;
+  background: $primary;
+  border-radius: 10px;
+}
+
+admin-detail {
+  margin: 0;
+  padding: 0;
+}
+
+// .detail-display {
+//   display: block;
+// }
+
+.manipulate-user {
+  height: 3vh;
+  width: 20vw;
+  transform: translateY(0vh);
+  transform: translateX(30vh);
+  font-size: 2em;
+  color: $primary;
+}
+
+.inline {
+  display: inline;
+  margin-left: 16.8vw;
+  transform: translate(0vw, 2.5vh);
+  position: fixed;
+}
+
+input {
+  line-height: 3.5vh;
+  width: 5vw;
+  font-size: 1em;
+  font-weight: 400;
+  border: none;
+  border-bottom: 3px solid $primary;
+  background: $alternative !important;
+}
+
+.math {
+
+
 }
 
 h1 {
@@ -100,4 +192,23 @@ h1 {
   float: right;
   font-family: serif;
   font-weight: 200;
+}
+
+.confirm {
+  width: 8vw;
+  height: 3vh;
+  margin-top: 0vh;
+  border-radius: 20px;
+  border: 2px solid $primaryVariant;
+  background: linear-gradient(to left, $primaryVariant, $alternative);
+  color: $primary;
+  font-size: .5em;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.confirm:hover {
+  border: 2px solid $primary;
+  background: linear-gradient(to left, $primary, $primaryVariant);
+  color: $alternative;
 }

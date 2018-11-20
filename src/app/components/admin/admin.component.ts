@@ -16,7 +16,7 @@ export class AdminComponent implements OnInit {
   selectedUser: User;
   selectedEvent: Event;
 
-  constructor(private eventService: EventService) { }
+  constructor(private eventService: EventService, private userService: UserService) { }
 
   ngOnInit() {
     this.eventService.eventSelected
@@ -25,6 +25,12 @@ export class AdminComponent implements OnInit {
           this.selectedEvent = event;
         }
       );
+      this.userService.userSelected
+        .subscribe(
+          (user: User) => {
+            this.selectedUser = user;
+          }
+        );
   }
 
 

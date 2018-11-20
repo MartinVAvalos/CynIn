@@ -12,6 +12,7 @@ import { EventService } from '../../../services/event.service';
   styleUrls: ['./admin-detail.component.scss']
 })
 export class AdminDetailComponent implements OnInit {
+  @Input() user: User;
   @Input() event: Event;
 
   constructor() { }

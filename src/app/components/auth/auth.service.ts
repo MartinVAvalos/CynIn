@@ -1,8 +1,7 @@
 import * as firebase from 'firebase';
 
 export class AuthService {
-  value:string;
-  num: number;
+  value:string = '10000';
 
 
   signupUser(email: string, password: string) {
@@ -26,13 +25,12 @@ export class AuthService {
       this.value = firebase.auth().currentUser.uid;
    //   console.log(this.value); this worked
   }
-  getUid():string{
-    return this.value=firebase.auth().currentUser.uid;
-  }
 
-   set_uid(){
-     // this.num = Math.floor(Math.random() * 6) + 1;
-     this.value=null;
-   }
+  getUid(): any {
+    firebase.auth().onAuthStateChanged((user) => {
+      return user.uid;
+    });
+    return this.value;
+  }
 
 }

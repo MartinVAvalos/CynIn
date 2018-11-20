@@ -24,6 +24,8 @@ import { AdminListComponent } from './components/admin/admin-list/admin-list.com
 import { AdminItemComponent } from './components/admin/admin-list/admin-item/admin-item.component';
 import { AdminDetailComponent } from './components/admin/admin-detail/admin-detail.component';
 
+import { MemberComponent } from './components/member/member.component';
+
 import { UserComponent } from './components/user/user.component';
 
 import { EventComponent } from './components/event/event.component';
@@ -33,7 +35,6 @@ import { EventDetailComponent } from './components/event/event-detail/event-deta
 
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
-
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { HeaderComponent } from './components/header/header.component';
     EventItemComponent,
     EventDetailComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    MemberComponent
   ],
   imports: [
     BrowserModule,

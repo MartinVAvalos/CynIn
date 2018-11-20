@@ -12,15 +12,15 @@ html {
 }
 
 .container {
-  transform: translate(1.1vw, -2vh);
+  transform: translate(-21.5vw, -2.1vh);
   float: right;
   text-align: center;
   background-color: #ffffff;
   border: 1.2px solid $primary;
   margin: 20px;
   padding: 15px;
-  width: 200px;
-  height: 75px;
+  width: 13vw;
+  height: 6.2vh;
   overflow: scroll;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.5s, transform 0.5s ease-out;
@@ -33,7 +33,7 @@ html {
   background-color: none;
 }
 
-.eventTitle {
+.userTitle {
   text-align: center;
   padding: 5px 0 0 0;
   margin: 0;
@@ -49,7 +49,7 @@ html {
   padding: 0 0 15px 0;
   font-weight: 400;
   font-size: 0.1em;
-  color:black;
+  color: $primary;
 }
 
 .container img {
@@ -60,14 +60,11 @@ html {
   -webkit-transition: opacity 0.3s, transform 0.3s;
 }
 
-.date-time {
+.user-email {
   margin: 0;
   padding-top: 1.2vh;
+  margin-bottom: 1vh;
   color: $primary;
-}
-
-hr {
-  border-color: $primaryVariant
 }
 
 .details {

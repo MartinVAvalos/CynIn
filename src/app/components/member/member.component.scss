@@ -1,0 +1,66 @@
+$primary: #2b2d42 !default;
+$primaryVariant: #8d99ae !default;
+$alternative: #edf2f4 !default;
+$secondary: #b3d89c !default;
+$secondaryVariant: #d0efb1 !default;
+
+$disabled: #602617;
+
+.container-full {
+  position: fixed;
+  top: 6vh;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: $alternative;
+}
+
+.container-shiftMiddle {
+  position: relative;
+  display: flex;
+  top: 10vh;
+  left: 10vw;
+  height: 80vh;
+  width: 80vw;
+}
+
+.left-container, .divider, .left-container {
+  display: inline;
+}
+
+.left-container {
+  width: 35vw;
+}
+
+.member-name {
+  font-size: 2em;
+  padding-bottom: 5vh;
+  color: $primary;
+}
+
+.right-container {
+  width: 35vw;
+}
+
+.time {
+  margin-left: 3vw;
+  width: 10vw;
+  height: 5vh;
+  border-radius: 20px;
+  border: 2px solid $primary;
+  background: $alternative;
+  color: $primary;
+  font-size: 1.5em;
+  font-weight: 500;
+  letter-spacing: 3px;
+}
+
+.time:hover {
+  color: $alternative;
+  background: $primary;
+}
+
+.text {
+  color: $primary;
+  font-size: 1.3em;
+}

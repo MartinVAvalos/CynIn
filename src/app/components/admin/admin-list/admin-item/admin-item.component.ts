@@ -15,13 +15,14 @@ export class AdminItemComponent implements OnInit {
   @Input() user: User;
   @Input() event: Event;
 
-  constructor(private memberService: UserService, private eventService: EventService) { }
+  constructor(private userService: UserService, private eventService: EventService) { }
 
   ngOnInit() {
   }
 
   onSelected() {
     this.eventService.eventSelected.emit(this.event);
+    this.userService.userSelected.emit(this.user)
   }
 
 }

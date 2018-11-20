@@ -19,8 +19,10 @@ html {
   border: 1.2px solid $primary;
   margin: 20px;
   padding: 15px;
-  width: 200px;
-  height: 75px;
+  width: 13vw;
+  height: 6.2vh;
+  // width: 200px;
+  // height: 75px;
   overflow: scroll;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.5s, transform 0.5s ease-out;
@@ -49,7 +51,7 @@ html {
   padding: 0 0 15px 0;
   font-weight: 400;
   font-size: 0.1em;
-  color:black;
+  color: $primary;
 }
 
 .container img {

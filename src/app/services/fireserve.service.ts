@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http, Response } from '@angular/http'
 import { Server } from 'selenium-webdriver/safari';
-import {User} from './../models/user.model';
+import { User } from './../models/user.model';
 import { database } from 'firebase';
 import {AuthService} from './../components/auth/auth.service';
 

@@ -1,7 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import{ User } from '../../../models/user.model';
 import { AuthService } from '../auth.service';
 import { UserService } from '../../../services/user.service';
 
@@ -24,8 +25,7 @@ export class SignupComponent {
 
     const firstName = form.value.firstName;
     const lastName = form.value.lastName;
-    console.log("hello " + lastName);
-    this.userFire.serviceRegister(email, firstName, lastName);
+    this.userFire.onSaveUp(email, firstName, lastName);
 
     this.router.navigate(['/signin']);
   }
