@@ -5,13 +5,14 @@ export class User{
  email: string;
 
  isAdmin: boolean;
- timeinHours: number;  // keeps track when they came in
- timeinMinutes: number;
 
- timeoutHours: number;    // keeps track when they came out
- timeoutMinutes: number;
+ timein: Date;
+ timeout: Date;
+ totalTimeMin:number;      //keeps track of total time
 
- totalTimeMin:number;
- totalTimeHours:number;      //keeps track of total time
-
+/*
+  Time is being counted from 0 to 23
+  We subtract timeout to timein. (Users will not be able to stay in the club after 11pm, making it impossible to
+                                  for a member to stay in the club from 23 to 2)
+*/
 }

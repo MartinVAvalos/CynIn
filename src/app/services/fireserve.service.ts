@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Headers, Http, Response } from '@angular/http'
 import { Server } from 'selenium-webdriver/safari';
 import { User } from './../models/user.model';
+import{ SignedIn } from '../models/signed-in.model';
 import { database } from 'firebase';
 import {AuthService} from './../components/auth/auth.service';
 
@@ -17,6 +18,7 @@ export class FireserveService {
   storeUser(server : User){
     return this.http.put('https://muse-cynin.firebaseio.com/'+this.uidFromUser.getUid()+'/data.json', server);
   }
+
   getUser(){
 
     return this.http.get('https://muse-cynin.firebaseio.com/'+this.uidFromUser.getUid()+'/data.json')
@@ -32,10 +34,26 @@ export class FireserveService {
         return Observable.throw(console.log(Response));
       }
     );
-
-
   }
 
+  signedIn(email: string, server : SignedIn){
+    return this.http.put('https://muse-cynin.firebaseio.com/signed-in/.json', server);
+  }
 
+  getSignedIn(){
+
+    return this.http.get('https://muse-cynin.firebaseio.com/signed-in.json')
+    .map(
+          (response: Response) => {
+            const data = response.json();
+            return data;
+          }
+      )
+      .catch(
+        (error: Response) => {
+          return Observable.throw(console.log(Response));
+        }
+      );
+  }
 
 }

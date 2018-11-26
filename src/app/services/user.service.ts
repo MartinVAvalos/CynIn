@@ -1,5 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import{ User } from './../models/user.model'
+import{ User } from '../models/user.model';
+import{ SignedIn } from '../models/signed-in.model';
 import { FireserveService} from './fireserve.service';
 import { NgForm } from '@angular/forms';
 
@@ -7,6 +8,7 @@ import { NgForm } from '@angular/forms';
 export class UserService {
   userSelected = new EventEmitter<User>();
   user:User;
+  signed:SignedIn;
 
   constructor(private fire: FireserveService) {
     this.user = {
@@ -16,17 +18,20 @@ export class UserService {
       email: '',
 
       isAdmin: false,
-      timeinHours: null,
-      timeinMinutes: null,
 
-      timeoutHours: null,   // keeps track when they came out
-      timeoutMinutes: null,
+      timein: null,
+      timeout: null,
+      totalTimeMin: 0     //keeps track of total time
+    };
 
-      totalTimeMin:null,
-      totalTimeHours:null      //keeps track of total time
+    this.signed = {
+      email: '',
+      nameFirst: '',
+      nameLast: '',
+      timein: null,
+      timeout: null,
+      totalTimeMin: null,
     }
-
-
   }
 
   onSaveUp(email: string, nameFirst: string, nameLast: string) {
@@ -42,10 +47,9 @@ export class UserService {
        );
   }
 
-  onSaveIn(email: string, nameFirst: string, nameLast: string) {
+  onSaveIn(email: string, time: Date) {
     this.user.email = email;
-    this.user.nameFirst = nameFirst;
-    this.user.nameLast = nameLast;
+    this.user.timein = time;
 
     //save yo shit
     this.fire.storeUser(this.user)
@@ -55,23 +59,40 @@ export class UserService {
        );
   }
 
-  serviceLogin(email: string, nameFirst: string, nameLast: string){
-    this.user.email = email;
-    this.user.nameFirst = nameFirst;
-    this.user.nameLast = nameLast;
+  signedIn(email: string, nameFirst: string, nameLast: string, timein: Date, timeout, totalTimeMin) {
+    this.signed.email = email;
+    this.signed.nameFirst = nameFirst;
+    this.signed.nameLast = nameFirst;
+    this.signed.timein = timein;
+    this.signed.timeout = timeout;
+    this.signed.nameFirst = totalTimeMin;
 
     //save yo shit
-    this.fire.storeUser(this.user)
+    this.fire.signedIn(email, this.signed)
      .subscribe(
        (response) =>console.log(response),
        (error) =>console.log(error)
        );
-
-    // this.user.timeinHours = 5;//time.getHours();
-    // this.user.timeinMinutes = 4; //time.getMinutes();
-    // console.log(this.user.timeinHours);
-    // console.log('here ghjghghgghghgghhghghg');
   }
+
+
+  // serviceLogin(email: string, nameFirst: string, nameLast: string){
+  //   this.user.email = email;
+  //   this.user.nameFirst = nameFirst;
+  //   this.user.nameLast = nameLast;
+  //
+  //   //save yo shit
+  //   this.fire.storeUser(this.user)
+  //    .subscribe(
+  //      (response) =>console.log(response),
+  //      (error) =>console.log(error)
+  //      );
+  //
+  //   // this.user.timeinHours = 5;//time.getHours();
+  //   // this.user.timeinMinutes = 4; //time.getMinutes();
+  //   // console.log(this.user.timeinHours);
+  //   // console.log('here ghjghghgghghgghhghghg');
+  // }
 
   logout(){
 

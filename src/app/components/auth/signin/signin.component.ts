@@ -11,14 +11,18 @@ import { UserService } from '../../../services/user.service';
   styleUrls: ['./signin.component.scss']
 })
 export class SigninComponent {
-
   constructor(private authService: AuthService, private router: Router, private userFire: UserService) { }
 
   onSignin(form: NgForm) {
     const email = form.value.email;
     const password = form.value.password;
     this.authService.signinUser(email, password);
-    this.userFire.onSaveIn(email, firstName, lastName);
+
+    var time = new Date();
+    // this.userFire.onSaveIn(email, time);
+    // console.log("Time is "+time.getHours() + ":" + time.getMinutes());
+    this.userFire.signedIn(email, 'Martin', 'Vera', time, null, null);
+
     this.router.navigate(['/home']);
   }
 }

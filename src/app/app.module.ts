@@ -27,6 +27,8 @@ import { AdminDetailComponent } from './components/admin/admin-detail/admin-deta
 import { MemberComponent } from './components/member/member.component';
 
 import { UserComponent } from './components/user/user.component';
+import { UserListComponent } from './components/user/user-list/user-list.component';
+import { UserItemComponent } from './components/user/user-list/user-item/user-item.component';
 
 import { EventComponent } from './components/event/event.component';
 import { EventListComponent } from './components/event/event-list/event-list.component';
@@ -48,6 +50,8 @@ import { HeaderComponent } from './components/header/header.component';
     AdminDetailComponent,
 
     UserComponent,
+    UserListComponent,
+    UserItemComponent,
 
     EventComponent,
     EventListComponent,

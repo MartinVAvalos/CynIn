@@ -1,50 +1,26 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { User } from '../../models/user.model';
-import { UserService } from '../../services/user.service';
+import { Component, OnInit } from '@angular/core';
 
-import {FireserveService} from './../../services/fireserve.service';
-import{AuthService} from '../auth/auth.service'
-import {Router} from '@angular/router'
-
+import { Event } from '../../models/event.model';
+import { EventService } from '../../services/event.service';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss'],
+  providers: [EventService]
 })
 export class UserComponent implements OnInit {
-  user:User;
+  selectedEvent: Event;
+   
+  constructor(private eventService: EventService) {}
 
-  constructor(
-    private fire:FireserveService,
-    private serviceToLoggout: AuthService,
-    private userService: UserService,
-    private ru:Router) {}
-
-  ngOnInit() {
-  }
-
-  login(){
-    // this.userService.serviceLogin();
-  }
-
-  onSave(user: User) {
-   this.fire.storeUser(user)
-    .subscribe(
-      (response) =>console.log(response),
-      (error) =>console.log(error)
-      );
-  }
-  onFetch(){
-    // this.fire.getUser()
-    // .subscribe(
-    //   (servers: User) =>this.user=servers,
-    //   (error)=> console.log(error)
-    // );
-  }
- logout(){
- //  this.serviceToLoggout.set_uid();
- //    this.ru.navigate(['/signin']);
- }
+    ngOnInit() {
+      this.eventService.eventSelected
+        .subscribe(
+          (event: Event) => {
+            this.selectedEvent = event;
+          }
+        );
+    }
 
 }
