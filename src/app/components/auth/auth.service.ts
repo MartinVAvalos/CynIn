@@ -23,10 +23,10 @@ export class AuthService {
       .catch(
         error => console.log(error)
       );
-
   }
 
   getUid(): any {
+    this.value=firebase.auth().currentUser.uid;
     return this.value;
   }
 

@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { UserService } from '../../../services/user.service';
 
+import * as firebase from 'firebase';
+
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -21,7 +23,7 @@ export class SigninComponent {
     var time = new Date();
     // this.userFire.onSaveIn(email, time);
     // console.log("Time is "+time.getHours() + ":" + time.getMinutes());
-    this.userFire.signedIn(email, 'Martin', 'Vera', time, null, null);
+    this.userFire.signedIn(email, time, null, null);
 
     this.router.navigate(['/home']);
   }

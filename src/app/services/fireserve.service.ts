@@ -6,6 +6,7 @@ import{ SignedIn } from '../models/signed-in.model';
 import { database } from 'firebase';
 import {AuthService} from './../components/auth/auth.service';
 
+
 import 'rxjs/Rx';
 import {Observable} from 'rxjs/Observable';
 
@@ -13,7 +14,17 @@ import {Observable} from 'rxjs/Observable';
 @Injectable()
 export class FireserveService {
 
-  constructor(private http: Http,private uidFromUser: AuthService) { }
+  constructor(
+      private http: Http,
+      private uidFromUser: AuthService,
+
+
+    ) {
+
+
+
+
+    }
 
   storeUser(server : User){
     return this.http.put('https://muse-cynin.firebaseio.com/'+this.uidFromUser.getUid()+'/data.json', server);
@@ -37,7 +48,7 @@ export class FireserveService {
   }
 
   signedIn(email: string, server : SignedIn){
-    return this.http.put('https://muse-cynin.firebaseio.com/signed-in/.json', server);
+    return this.http.put('https://muse-cynin.firebaseio.com/signed-in/' + email + '.json', server);
   }
 
   getSignedIn(){
@@ -55,5 +66,21 @@ export class FireserveService {
         }
       );
   }
+  storeStrings(server : User){
+
+    return this.http.put('https://muse-cynin.firebaseio.com/'+this.uidFromUser.getUid()+'/data.json', server);
+  }
+/*
+  create a model that has
+
+
+*/
+
+
+
+
+
+
+
 
 }

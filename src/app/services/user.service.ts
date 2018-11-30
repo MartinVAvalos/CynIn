@@ -24,14 +24,7 @@ export class UserService {
       totalTimeMin: 0     //keeps track of total time
     };
 
-    this.signed = {
-      email: '',
-      nameFirst: '',
-      nameLast: '',
-      timein: null,
-      timeout: null,
-      totalTimeMin: null,
-    }
+
   }
 
   onSaveUp(email: string, nameFirst: string, nameLast: string) {
@@ -59,16 +52,13 @@ export class UserService {
        );
   }
 
-  signedIn(email: string, nameFirst: string, nameLast: string, timein: Date, timeout, totalTimeMin) {
-    this.signed.email = email;
-    this.signed.nameFirst = nameFirst;
-    this.signed.nameLast = nameFirst;
-    this.signed.timein = timein;
-    this.signed.timeout = timeout;
-    this.signed.nameFirst = totalTimeMin;
+  signedIn(email: string, timein: Date, timeout:Date, totalTimeMin:number) {
+    this.user.timein = timein;
+    this.user.timeout = timeout;
+    this.user.totalTimeMin = totalTimeMin;
 
     //save yo shit
-    this.fire.signedIn(email, this.signed)
+    this.fire.storeUser(this.user)
      .subscribe(
        (response) =>console.log(response),
        (error) =>console.log(error)
