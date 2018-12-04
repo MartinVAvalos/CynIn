@@ -11,6 +11,7 @@ export class UserService {
   signed:SignedIn;
 
   constructor(private fire: FireserveService) {
+
     this.user = {
 
       nameFirst: '',
@@ -96,4 +97,5 @@ export class UserService {
     return "stuff";
     // return  this.display=this.user.timeinHours+":"+this.user.timeinMinutes;
   }
+
 }

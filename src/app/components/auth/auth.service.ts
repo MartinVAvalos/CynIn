@@ -1,18 +1,14 @@
 import * as firebase from 'firebase';
 
 export class AuthService {
-  value:string = '1000';
+  value:string;
 
 
   signupUser(email: string, password: string) {
     firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then(
-        response => console.log(response)
-      )
       .catch(
         error => console.log(error)
       );
-      this.value = firebase.auth().currentUser.uid;
   }
 
   signinUser(email: string, password: string) {
@@ -23,11 +19,19 @@ export class AuthService {
       .catch(
         error => console.log(error)
       );
+      this.value = firebase.auth().currentUser.uid;
   }
 
-  getUid(): any {
-    this.value=firebase.auth().currentUser.uid;
-    return this.value;
+  getUid():string{
+    return this.value=firebase.auth().currentUser.uid;
   }
+
+  log_out(){
+    this.value=null;
+  }
+
+  set_uid(){
+     this.value=null;
+   }
 
 }

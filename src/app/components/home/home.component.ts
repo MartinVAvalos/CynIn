@@ -34,6 +34,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.aut.value='1000';
+    this.aut.value = '1000';
   }
 }
