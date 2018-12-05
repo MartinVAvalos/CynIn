@@ -1,8 +1,8 @@
 export class User{
 
- nameFirst: string;
- nameLast: string;
- email: string;
+ nameFirst?: string;
+ nameLast?: string;
+ email?: string;
 
  isAdmin?: boolean;
 

@@ -35,13 +35,12 @@ export class SigninComponent {
     const password = form.value.password;
     this.authService.signinUser(email, password);
 
-    this.fire.getUser().subscribe(
-      (server: User) => {
-        this.user = server;
-        this.save();
-      }
-    );
-
+    // this.fire.getUser().subscribe(
+    //   (server: User) => {
+    //     this.user = server;
+    //     this.save();
+    //   }
+    // );
 
     // var time = new Date();
    // this.userFire.onSaveIn(email, time);

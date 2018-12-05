@@ -52,7 +52,6 @@ export class SignupComponent {
 //   },
 //   (error) =>console.log(error)
 // );
-    this.authService.value = null;
 
 
 
