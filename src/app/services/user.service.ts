@@ -41,24 +41,13 @@ export class UserService {
        );
   }
 
-  onSaveIn(email: string, time: Date) {
-    this.user.email = email;
-    this.user.timein = time;
-
-    //save yo shit
-    this.fire.storeUser(this.user)
-     .subscribe(
-       (response) =>console.log(response),
-       (error) =>console.log(error)
-       );
-  }
 
   signedIn(email: string, timein: Date, timeout:Date, totalTimeMin:number) {
     this.user.timein = timein;
     this.user.timeout = timeout;
     this.user.totalTimeMin = totalTimeMin;
 
-    //save yo shit
+
     this.fire.storeUser(this.user)
      .subscribe(
        (response) =>console.log(response),
@@ -66,28 +55,6 @@ export class UserService {
        );
   }
 
-
-  // serviceLogin(email: string, nameFirst: string, nameLast: string){
-  //   this.user.email = email;
-  //   this.user.nameFirst = nameFirst;
-  //   this.user.nameLast = nameLast;
-  //
-  //   //save yo shit
-  //   this.fire.storeUser(this.user)
-  //    .subscribe(
-  //      (response) =>console.log(response),
-  //      (error) =>console.log(error)
-  //      );
-  //
-  //   // this.user.timeinHours = 5;//time.getHours();
-  //   // this.user.timeinMinutes = 4; //time.getMinutes();
-  //   // console.log(this.user.timeinHours);
-  //   // console.log('here ghjghghgghghgghhghghg');
-  // }
-
-  logout(){
-
-  }
 
   sendTime(){
 
@@ -96,6 +63,22 @@ export class UserService {
   display_punch():string{
     return "stuff";
     // return  this.display=this.user.timeinHours+":"+this.user.timeinMinutes;
+  }
+
+  model(){
+    this.user = {
+
+      nameFirst: '',
+      nameLast: '',
+      email: '',
+
+      isAdmin: false,
+
+      timein: null,
+      timeout: null,
+      totalTimeMin: 0
+    };
+    return this.user;
   }
 
 }

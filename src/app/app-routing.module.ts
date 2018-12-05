@@ -8,12 +8,12 @@ import { AdminComponent } from './components/admin/admin.component';
 import { MemberComponent } from './components/member/member.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: '/signin', pathMatch: 'full' },
   { path: 'signin', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'admin', component: AdminComponent },
-  { path: 'member', component: MemberComponent }
+  { path: 'member', component: MemberComponent },
+  { path: 'home', component: HomeComponent }
 ];
 
 @NgModule({

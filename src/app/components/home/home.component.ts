@@ -21,19 +21,12 @@ export class HomeComponent implements OnInit {
         private aut: AuthService
 
       ) {
-    // this.fire.getSignedIn()
-    // .subscribe(
-    //   (servers: User) => this.user = servers.email,
-    // // servers.email.lastIndexOf("vera") + 0,
-    // // servers.email.lastIndexOf("37")),
-    //   //str.replace(/^"(.*)"$/, '$1') gets rid of quotations
-    //   (error)=> console.log(error)
-    // );
+
 
 
   }
 
   ngOnInit() {
-    this.aut.value = '1000';
+    
   }
 }

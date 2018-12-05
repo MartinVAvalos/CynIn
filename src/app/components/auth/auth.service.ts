@@ -9,6 +9,7 @@ export class AuthService {
       .catch(
         error => console.log(error)
       );
+
   }
 
   signinUser(email: string, password: string) {
@@ -23,7 +24,8 @@ export class AuthService {
   }
 
   getUid():string{
-    return this.value=firebase.auth().currentUser.uid;
+    this.value=firebase.auth().currentUser.uid;
+    return this.value;
   }
 
   log_out(){

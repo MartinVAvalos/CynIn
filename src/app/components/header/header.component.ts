@@ -21,6 +21,6 @@ export class HeaderComponent implements OnInit {
 
   onLogout() {
     this.authService.set_uid();
-    this.ru.navigate(['/home']);
+    this.ru.navigate(['/signin']);
   }
 }

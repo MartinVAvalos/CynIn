@@ -4,11 +4,11 @@ export class User{
  nameLast: string;
  email: string;
 
- isAdmin: boolean;
+ isAdmin?: boolean;
 
- timein: Date;
- timeout: Date;
- totalTimeMin:number;      //keeps track of total time
+ timein?: Date;
+ timeout?: Date;
+ totalTimeMin?:number;      //keeps track of total time
 
 /*
   Time is being counted from 0 to 23

@@ -13,53 +13,31 @@ import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class FireserveService {
+  myurl:string='https://muse-cynin.firebaseio.com/';
 
   constructor(
       private http: Http,
       private uidFromUser: AuthService) {}
 
   storeUser(server : User){
-    return this.http.put('https://muse-cynin.firebaseio.com/'+this.uidFromUser.getUid()+'/data.json', server);
+    return this.http.put(this.myurl+this.uidFromUser.getUid()+'/data.json', server);
   }
 
   getUser(){
-    return this.http.get('https://muse-cynin.firebaseio.com/'+this.uidFromUser.getUid()+'/data.json')
+    return this.http.get(this.myurl+this.uidFromUser.getUid()+'/data.json')
     .map(
-          (response: Response) => {
-            const data = response.json();
-            console.log("Hello there "+response.json());
-            return data;
-          }
-      )
-      .catch(
-        (error: Response) => {
-          return Observable.throw(console.log(Response));
+        (response: Response) => {
+          const data = response.json();
+          return data;
         }
-      );
+    )
+    .catch(
+      (error: Response) => {
+        return Observable.throw(console.log(Response));
+      }
+    );
   }
 
-  // signedIn(email: string, server : SignedIn){
-  //   return this.http.put('https://muse-cynin.firebaseio.com/signed-in/' + email + '.json', server);
-  // }
 
-  // getSignedIn(){
-  //
-  //   return this.http.get('https://muse-cynin.firebaseio.com/signed-in.json')
-  //   .map(
-  //         (response: Response) => {
-  //           const data = response.json();
-  //           return data;
-  //         }
-  //     )
-  //     .catch(
-  //       (error: Response) => {
-  //         return Observable.throw(console.log(Response));
-  //       }
-  //     );
-  // }
-  storeStrings(server : User){
-
-    return this.http.put('https://muse-cynin.firebaseio.com/'+this.uidFromUser.getUid()+'/data.json', server);
-  }
 
 }

@@ -7,7 +7,7 @@ import { AuthService } from '../auth.service';
 import { UserService } from '../../../services/user.service';
 
 import { FireserveService } from '../../../services/fireserve.service';
-import * as firebase from 'firebase';
+
 
 @Component({
   selector: 'app-signup',
@@ -17,46 +17,70 @@ import * as firebase from 'firebase';
 })
 export class SignupComponent {
   user: User;
-  constructor(private authService: AuthService, private router: Router, private userFire: UserService, private fire: FireserveService) {
-    this.user = {
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private userFire: UserService,
+    private fire: FireserveService,
+    private userService: UserService
+    ) {
+    this.user = userService.model(); // bring in the model I created in the userServices
 
-      nameFirst: '',
-      nameLast: '',
-      email: '',
 
-      isAdmin: false,
-
-      timein: null,
-      timeout: null,
-      totalTimeMin: 0     //keeps track of total time
-    };
-  }
+  } // end of the constructor
 
   onSignup(form: NgForm) {
     const email = form.value.email;
     const password = form.value.password;   // NOTE: password is equal to password1.
     this.authService.signupUser(email, password);
 
-    this.authService.signinUser(email, password);  // Notifies firebase what uid to use in order to save
-                                                   // name onto database (lines 48-55)
-
-
-    const firstName = form.value.firstName;
-    const lastName = form.value.lastName;
-    // this.userFire.onSaveUp(email, firstName, lastName);
 
     this.user.email = form.value.email;
     this.user.nameFirst = form.value.firstName;
     this.user.nameLast = form.value.lastName;
-    this.fire.storeUser(this.user)
-    .subscribe(
+
+    this.fire.storeUser(this.user).subscribe(
       (response) =>console.log(response),
       (error) =>console.log(error)
     );
+// this.fire.storeUser(this.user)
+// .subscribe(
+//   (response) =>{
+//     console.log(response);
+//     console.log('I saved your shit');
+//     this.router.navigate(['/signin']);
+//   },
+//   (error) =>console.log(error)
+// );
+    this.authService.value = null;
 
-    // this.authService.log_out();
+
 
     this.router.navigate(['/signin']);
   }
+
+  after(){
+
+    // this.fire.storeUser(this.user)
+    // .subscribe(
+    //   (response) =>{
+    //     console.log(response);
+    //     console.log('I saved your shit');
+    //     this.router.navigate(['/signin']);
+    //   },
+    //   (error) =>console.log(error)
+    // );
+  }
+
+  // onFetch(){
+  //   this.fire.getlist()
+  //   .subscribe(
+  //     (servers: User) =>{
+  //       this.user=servers;
+  //       this.after();
+  //     }
+
+  //   );
+  // }
 
 }
