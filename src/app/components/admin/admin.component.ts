@@ -1,3 +1,7 @@
+// Purpose: Admin page.
+// Shows admin's amount of time spent in Club
+// Gives admin's ability to manage where their time schedule will be sent.
+
 import { Component, OnInit } from '@angular/core';
 
 import { User } from '../../models/user.model';

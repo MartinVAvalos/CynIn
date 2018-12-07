@@ -1,3 +1,5 @@
+// Service to store and fetch data from Firebase
+
 import { Injectable } from '@angular/core';
 import { Headers, Http, Response } from '@angular/http'
 import { Server } from 'selenium-webdriver/safari';

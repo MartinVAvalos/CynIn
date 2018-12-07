@@ -1,3 +1,7 @@
+// Have Question Marks on all variables to make sure I can store and fetch without having to be forced
+// to put a certain variable while storing and fetching
+//Question marks will be removed once I am comfortable with fetching and storing
+
 export class User{
 
  nameFirst?: string;

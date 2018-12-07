@@ -1,3 +1,6 @@
+// Purpose: Manage events
+// Currently used hardcoded events to test Event component capabilities
+
 import { EventEmitter, Injectable } from '@angular/core';
 import { Event } from '../models/event.model';
 

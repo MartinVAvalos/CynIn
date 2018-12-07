@@ -1,3 +1,6 @@
+// Purpose: Home page displays which user is signed interface.
+//  Home page also displays events to inform club members
+
 import { Component, OnInit } from '@angular/core';
 
 import { UserService } from '../../services/user.service';
@@ -27,6 +30,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+
   }
 }

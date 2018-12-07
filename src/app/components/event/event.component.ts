@@ -1,3 +1,5 @@
+// Display Events. Uses UserService to manipulate event related data
+
 import { Component, OnInit } from '@angular/core';
 
 import { Event } from '../../models/event.model';

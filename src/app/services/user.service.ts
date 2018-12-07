@@ -1,3 +1,5 @@
+// Purpose: Service manages users. This will be used for both Member and Admin
+
 import { EventEmitter, Injectable } from '@angular/core';
 import{ User } from '../models/user.model';
 import{ SignedIn } from '../models/signed-in.model';

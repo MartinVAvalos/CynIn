@@ -1,3 +1,5 @@
+// Purpose: Service for signing in and signing up
+
 import * as firebase from 'firebase';
 
 export class AuthService {

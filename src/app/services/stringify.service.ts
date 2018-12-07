@@ -1,3 +1,5 @@
+// This service is to save locally, but may be scrapped for fireservice 
+
 import { Injectable } from '@angular/core';
 
 import { User } from '../models/user.model';

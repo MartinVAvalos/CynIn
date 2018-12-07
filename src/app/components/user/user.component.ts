@@ -1,3 +1,6 @@
+// Purpose: User Component will be displaying User information. Uses UserService to manipulate User info.
+// Currently doesn't do anything due to incapability of fetching data from firebase
+
 import { Component, OnInit } from '@angular/core';
 
 import { Event } from '../../models/event.model';
@@ -11,7 +14,7 @@ import { EventService } from '../../services/event.service';
 })
 export class UserComponent implements OnInit {
   selectedEvent: Event;
-   
+
   constructor(private eventService: EventService) {}
 
     ngOnInit() {

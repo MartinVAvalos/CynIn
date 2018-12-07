@@ -1,3 +1,5 @@
+// Admin will have the ability to post an event
+
 export class Event {
   public title: string;
   public date: string;
