@@ -1,3 +1,4 @@
+//Anything
 // Purpose: Service for signing in and signing up
 
 import * as firebase from 'firebase';
