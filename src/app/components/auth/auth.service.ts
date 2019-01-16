@@ -28,7 +28,7 @@ export class AuthService {
         response =>{
           this.value = firebase.auth().currentUser.uid;
           this.route.navigate(['/member']);
-  
+  // martin sucks dick
         }
         
       )
