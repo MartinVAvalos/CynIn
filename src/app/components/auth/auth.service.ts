@@ -2,10 +2,16 @@
 // Purpose: Service for signing in and signing up
 
 import * as firebase from 'firebase';
+import { Router } from '@angular/router';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class AuthService {
   value:string;
 
+  constructor(private route: Router) {
+    
+  }
 
   signupUser(email: string, password: string) {
     firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -17,26 +23,25 @@ export class AuthService {
 
   signinUser(email: string, password: string) {
     firebase.auth().signInWithEmailAndPassword(email, password)
-      .then(
-        response => console.log(response)
+      .then( // the info has come back
+        // response => console.log(response)
+        response =>{
+          this.value = firebase.auth().currentUser.uid;
+          this.route.navigate(['/member']);
+  
+        }
+        
       )
-      .catch(
+      .catch( // if info doesnt exist or didnt come back
         error => console.log(error)
+        // flash message
       );
       this.value = firebase.auth().currentUser.uid;
   }
 
   getUid():string{
-    this.value=firebase.auth().currentUser.uid;
-    return this.value;
+   return this.value=firebase.auth().currentUser.uid;
   }
 
-  log_out(){
-    this.value=null;
-  }
-
-  set_uid(){
-     this.value=null;
-   }
 
 }

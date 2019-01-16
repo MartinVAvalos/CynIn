@@ -17,12 +17,4 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  isSignedIn(value) {
-    return value;
-  }
-
-  onLogout() {
-    this.authService.set_uid();
-    this.ru.navigate(['/signin']);
-  }
 }
