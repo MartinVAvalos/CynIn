@@ -3,7 +3,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import * as firebase from 'firebase';
 import{ User } from '../../../models/user.model';
 import { AuthService } from '../auth.service';
 import { UserService } from '../../../services/user.service';
@@ -40,10 +40,17 @@ export class SignupComponent {
     this.user.email = form.value.email;
     this.user.nameFirst = form.value.firstName;
     this.user.nameLast = form.value.lastName;
-
+// add a fetch here for uid
     this.fire.storeUser(this.user).subscribe(
       (response) =>{
-        this.router.navigate(['/signin']);
+        firebase.auth().signOut()
+        .then(
+          (value:any)=>{
+           this.router.navigate(['/signin']);
+          }
+       
+        );
+        // this.router.navigate(['/signin']);
       },
       (error) =>{
 
