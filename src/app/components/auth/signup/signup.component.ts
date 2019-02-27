@@ -3,7 +3,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import * as firebase from 'firebase';
 import{ User } from '../../../models/user.model';
 import { AuthService } from '../auth.service';
 import { UserService } from '../../../services/user.service';
@@ -29,7 +29,7 @@ export class SignupComponent {
     this.user = userService.model(); // bring in the model I created in the userServices
 
 
-  } // end of the constructor
+  } 
 
   onSignup(form: NgForm) {
     const email = form.value.email;
@@ -40,48 +40,27 @@ export class SignupComponent {
     this.user.email = form.value.email;
     this.user.nameFirst = form.value.firstName;
     this.user.nameLast = form.value.lastName;
-
+// add a fetch here for uid
     this.fire.storeUser(this.user).subscribe(
-      (response) =>console.log(response),
-      (error) =>console.log(error)
+      (response) =>{
+        firebase.auth().signOut()
+        .then(
+          (value:any)=>{
+           this.router.navigate(['/signin']);
+          }
+       
+        );
+        // this.router.navigate(['/signin']);
+      },
+      (error) =>{
+
+        // you can tell your user that the internet is not on
+        
+      }
     );
-// this.fire.storeUser(this.user)
-// .subscribe(
-//   (response) =>{
-//     console.log(response);
-//     console.log('I saved your shit');
-//     this.router.navigate(['/signin']);
-//   },
-//   (error) =>console.log(error)
-// );
 
-
-
-    this.router.navigate(['/signin']);
+    
   }
 
-  after(){
-
-    // this.fire.storeUser(this.user)
-    // .subscribe(
-    //   (response) =>{
-    //     console.log(response);
-    //     console.log('I saved your shit');
-    //     this.router.navigate(['/signin']);
-    //   },
-    //   (error) =>console.log(error)
-    // );
-  }
-
-  // onFetch(){
-  //   this.fire.getlist()
-  //   .subscribe(
-  //     (servers: User) =>{
-  //       this.user=servers;
-  //       this.after();
-  //     }
-
-  //   );
-  // }
 
 }
