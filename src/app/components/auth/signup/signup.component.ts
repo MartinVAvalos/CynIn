@@ -36,28 +36,9 @@ export class SignupComponent {
     const password = form.value.password;   // NOTE: password is equal to password1.
     this.authService.signupUser(email, password);
 
+    this.router.navigate(['/signin']);
 
-    this.user.email = form.value.email;
-    this.user.nameFirst = form.value.firstName;
-    this.user.nameLast = form.value.lastName;
-// add a fetch here for uid
-    this.fire.storeUser(this.user).subscribe(
-      (response) =>{
-        firebase.auth().signOut()
-        .then(
-          (value:any)=>{
-           this.router.navigate(['/signin']);
-          }
-       
-        );
-        // this.router.navigate(['/signin']);
-      },
-      (error) =>{
 
-        // you can tell your user that the internet is not on
-        
-      }
-    );
 
     
   }

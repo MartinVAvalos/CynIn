@@ -21,7 +21,7 @@ export class AuthService {
         error => console.log("User was not created cuz internet or slow wifi")
         
       );
-      firebase.auth().currentUser.uid;
+      
   }
 
   signinUser(email: string, password: string) {
@@ -37,7 +37,7 @@ export class AuthService {
         error => console.log(error)
         // flash message
       );
-      this.value = firebase.auth().currentUser.uid;
+     
   }
 
   getUid():string{
