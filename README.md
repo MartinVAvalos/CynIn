@@ -1,3 +1,6 @@
+dependency local, no cloud movement inside CDN
+Just a project to learn Agular.
+
 # Glist
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.8.
